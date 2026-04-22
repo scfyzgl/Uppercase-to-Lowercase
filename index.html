@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppercase to Lowercase Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+        .faq {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+        .faq p {
+            font-weight: bold;
+        }
+        .faq ul {
+            text-align: left;
+            margin-top: 10px;
+        }
+        .faq ul li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uppercase to Lowercase Converter</h1>
+    <p>Enter text in uppercase and press "Convert" to see it in lowercase:</p>
+
+    <div class="section">
+        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        <br>
+        <button onclick="convertText()">Convert</button>
+    </div>
+
+    <div class="section">
+        <h2>Converted Text</h2>
+        <div class="output" id="outputText"></div>
+    </div>
+
+    <div class="section">
+        <h2>Tool Functionality</h2>
+        <p>This tool allows you to convert any uppercase text to lowercase. Simply input your text in the provided text box, click the "Convert" button, and see the converted text appear below. It's a simple and effective way to quickly transform text without the need for complex software.</p>
+    </div>
+
+    <div class="section faq">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <ul>
+            <li><p><strong>How does this tool work?</strong></p>
+                <p>The tool takes the input text, converts all uppercase characters to lowercase, and displays the result instantly below the input area.</p>
+            </li>
+            <li><p><strong>Do I need an internet connection to use this tool?</strong></p>
+                <p>No, this tool works entirely on your browser. No internet connection is required after loading the page.</p>
+            </li>
+            <li><p><strong>Can I use this tool for large amounts of text?</strong></p>
+                <p>Yes, the tool can handle reasonably large text inputs. However, it might be less responsive with very large text blocks (thousands of characters).</p>
+            </li>
+            <li><p><strong>Is this tool free to use?</strong></p>
+                <p>Yes, this tool is completely free to use and open-source. Feel free to use it anytime without any restrictions.</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function convertText() {
+            const inputText = document.getElementById('inputText').value;
+            const outputText = inputText.toLowerCase();
+            document.getElementById('outputText').textContent = outputText;
+        }
+    </script>
+</body>
+</html>

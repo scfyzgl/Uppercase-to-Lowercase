@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppercase to Lowercase / Lowercase to Uppercase Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+        .faq {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+        .faq p {
+            font-weight: bold;
+        }
+        .faq ul {
+            text-align: left;
+            margin-top: 10px;
+        }
+        .faq ul li {
+            margin-bottom: 8px;
+        }
+        .copy-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Case Converter</h1>
+    <p>Select the conversion type and enter text in the input box. Press "Convert" to see the result, and use the "Copy" button to copy the converted text.</p>
+
+    <div class="section">
+        <select id="conversionType">
+            <option value="toLowerCase">Uppercase to Lowercase</option>
+            <option value="toUpperCase">Lowercase to Uppercase</option>
+        </select>
+        <br><br>
+        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        <br>
+        <button onclick="convertText()">Convert</button>
+    </div>
+
+    <div class="section">
+        <h2>Converted Text</h2>
+        <div class="output" id="outputText"></div>
+        <button class="copy-btn" id="copyButton" onclick="copyText()">Copy</button>
+    </div>
+
+    <div class="section">
+        <h2>Tool Functionality</h2>
+        <p>This tool allows you to convert text between uppercase and lowercase. You can select the conversion type (Uppercase to Lowercase or Lowercase to Uppercase), input the text, and click "Convert" to view the result. After conversion, you can easily copy the result using the "Copy" button.</p>
+    </div>
+
+    <div class="section faq">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <ul>
+            <li><p><strong>How does this tool work?</strong></p>
+                <p>The tool converts text either from uppercase to lowercase or from lowercase to uppercase based on your selection.</p>
+            </li>
+            <li><p><strong>Do I need an internet connection to use this tool?</strong></p>
+                <p>No, this tool works entirely in your browser. No internet connection is required after loading the page.</p>
+            </li>
+            <li><p><strong>Can I use this tool for large amounts of text?</strong></p>
+                <p>Yes, the tool can handle reasonably large text inputs. However, it might be less responsive with very large text blocks (thousands of characters).</p>
+            </li>
+            <li><p><strong>Is this tool free to use?</strong></p>
+                <p>Yes, this tool is completely free to use and open-source. Feel free to use it anytime without any restrictions.</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function convertText() {
+            const inputText = document.getElementById('inputText').value;
+            const conversionType = document.getElementById('conversionType').value;
+            let outputText = '';
+            
+            if (conversionType === 'toLowerCase') {
+                outputText = inputText.toLowerCase();
+            } else if (conversionType === 'toUpperCase') {
+                outputText = inputText.toUpperCase();
+            }
+            
+            document.getElementById('outputText').textContent = outputText;
+        }
+
+        function copyText() {
+            const outputText = document.getElementById('outputText').textContent;
+            navigator.clipboard.writeText(outputText).then(() => {
+                alert('Converted text copied to clipboard!');
+            }).catch(err => {
+                console.error('Error copying text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
